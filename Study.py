@@ -1,4 +1,3 @@
-
 import os
 import time
 import tkinter as tk
@@ -10,7 +9,7 @@ from tkinter import messagebox
 #Open pdf
 os.startfile("D:\Japanese-Learning-Application\index.html")
 #Sets study time limit
-timelimit = 20
+timelimit = 2
 #Initalises message box windows
 application_window = tk.Tk() 
 application_window.overrideredirect(1)
@@ -27,7 +26,7 @@ while timelimit > 0:
         while mins < timelimit:
             print (">>>>>>>>>>>>>>>>>>>>>", mins)
             # Sleep for a minute
-            time.sleep(10)
+            time.sleep(1)
             # Increment the minute total
             mins += 1
         # Bring up the dialog box here
@@ -67,8 +66,15 @@ message = '''
 f.write(message)
 f.close()
 
-
-
+os.startfile("D:\\Japanese-Learning-Application\\NHKwebeasy.url")
+timelimit = 2
+while timelimit > 0:
+    timelimit = int(simpledialog.askstring("Input", "How many more minutes do you need, (0 = finished)?",
+        parent=application_window))
+    if timelimit>0:
+        studytime(timelimit)
+    else:
+        break
 
 
 
